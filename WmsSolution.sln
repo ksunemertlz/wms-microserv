@@ -1,0 +1,39 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.0.31903.59
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WebUI", "WebUI\WebUI.csproj", "{DA36DAA7-23FC-4096-B261-4D5C4B75BC1D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ApiGateway", "ApiGateway\ApiGateway.csproj", "{43F6BD64-FF3A-4D15-B621-64D1FADA053E}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{1C21DB10-D307-429A-926E-CECE2B33AC85}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AuthService", "Services\AuthService\AuthService.csproj", "{06BA2453-8EE6-4F38-BFEC-4C3EDB9C3748}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{DA36DAA7-23FC-4096-B261-4D5C4B75BC1D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DA36DAA7-23FC-4096-B261-4D5C4B75BC1D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DA36DAA7-23FC-4096-B261-4D5C4B75BC1D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DA36DAA7-23FC-4096-B261-4D5C4B75BC1D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{43F6BD64-FF3A-4D15-B621-64D1FADA053E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{43F6BD64-FF3A-4D15-B621-64D1FADA053E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{43F6BD64-FF3A-4D15-B621-64D1FADA053E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{43F6BD64-FF3A-4D15-B621-64D1FADA053E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{06BA2453-8EE6-4F38-BFEC-4C3EDB9C3748}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{06BA2453-8EE6-4F38-BFEC-4C3EDB9C3748}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{06BA2453-8EE6-4F38-BFEC-4C3EDB9C3748}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{06BA2453-8EE6-4F38-BFEC-4C3EDB9C3748}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{06BA2453-8EE6-4F38-BFEC-4C3EDB9C3748} = {1C21DB10-D307-429A-926E-CECE2B33AC85}
+	EndGlobalSection
+EndGlobal
