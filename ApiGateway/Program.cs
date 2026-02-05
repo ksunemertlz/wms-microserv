@@ -15,8 +15,6 @@ if (app.Environment.IsDevelopment())
 }
 
 app.UseHttpsRedirection();
-
-// ВАЖНО: всегда подключаем контроллеры
 app.MapControllers();
 
 app.Run();
