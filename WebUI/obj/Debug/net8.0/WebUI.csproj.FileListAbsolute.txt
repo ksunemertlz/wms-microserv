@@ -28,3 +28,4 @@
 /Users/ksunemertlz/Desktop/диплом/wms-microserv/WebUI/obj/Debug/net8.0/WebUI.pdb
 /Users/ksunemertlz/Desktop/диплом/wms-microserv/WebUI/obj/Debug/net8.0/WebUI.genruntimeconfig.cache
 /Users/ksunemertlz/Desktop/диплом/wms-microserv/WebUI/obj/Debug/net8.0/ref/WebUI.dll
+/Users/ksunemertlz/Desktop/диплом/wms-microserv/WebUI/obj/Debug/net8.0/WebUI.sourcelink.json
