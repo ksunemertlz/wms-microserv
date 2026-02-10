@@ -1,22 +1,27 @@
-@model List<WebUI.Models.Product>
-
 <h2>Товары</h2>
 
+<a href="/Products/Create">Добавить товар</a>
+
 <table border="1">
-<tr>
-    <th>ID</th>
-    <th>Название</th>
-    <th>Артикул</th>
-    <th>Количество</th>
-</tr>
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>Артикул</th>
+        <th>Количество</th>
+        <th>Действия</th>
+    </tr>
 
 @foreach (var p in Model)
 {
-<tr>
-    <td>@p.Id</td>
-    <td>@p.Name</td>
-    <td>@p.Sku</td>
-    <td>@p.Quantity</td>
-</tr>
+    <tr>
+        <td>@p.Id</td>
+        <td>@p.Name</td>
+        <td>@p.Sku</td>
+        <td>@p.Quantity</td>
+        <td>
+            <a href="/Products/Edit/@p.Id">Изменить</a> |
+            <a href="/Products/Delete/@p.Id">Удалить</a>
+        </td>
+    </tr>
 }
 </table>

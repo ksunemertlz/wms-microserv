@@ -18,5 +18,39 @@ namespace ProductService.Controllers
         {
             return Ok(products);
         }
+
+        //Создание нового товара
+        [HttpPost]
+        public IActionResult Create(Product product)
+        {
+            product.Id = products.Count + 1;
+            products.Add(product);
+            return Ok(product);
+        }
+
+        //Редактирование товара по id
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, Product product)
+        {
+            var existing = products.FirstOrDefault(p => p.Id == id);
+            if (existing == null) return NotFound();
+
+            existing.Name = product.Name;
+            existing.Sku = product.Sku;
+            existing.Quantity = product.Quantity;
+
+            return Ok(existing);
+        }
+
+        //Удаление товара по id
+        [HttpDelete("{id}")]
+        public IActionResult Delete(int id)
+        {
+            var product = products.FirstOrDefault(p => p.Id == id);
+            if (product == null) return NotFound();
+
+            products.Remove(product);
+            return Ok();
+        }
     }
 }

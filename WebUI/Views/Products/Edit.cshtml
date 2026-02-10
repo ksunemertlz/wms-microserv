@@ -1,0 +1,19 @@
+@model WebUI.Models.Product
+
+<h2>Редактировать товар</h2>
+
+<form method="post">
+    <input type="hidden" name="Id" value="@Model.Id" />
+
+    Название:<br />
+    <input name="Name" value="@Model.Name" /><br />
+
+    Артикул:<br />
+    <input name="Sku" value="@Model.Sku" /><br />
+
+    Количество:<br />
+    <input name="Quantity" value="@Model.Quantity" type="number" /><br />
+
+    <br />
+    <button type="submit">Сохранить</button>
+</form>
