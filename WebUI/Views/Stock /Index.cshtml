@@ -1,0 +1,22 @@
+@model dynamic
+
+<h2>Остатки на складе</h2>
+
+<table border="1">
+    <tr>
+        <th>ID</th>
+        <th>Название</th>
+        <th>SKU</th>
+        <th>Количество</th>
+    </tr>
+
+@foreach (var item in Model)
+{
+    <tr>
+        <td>@item.id</td>
+        <td>@item.name</td>
+        <td>@item.sku</td>
+        <td>@item.quantity</td>
+    </tr>
+}
+</table>

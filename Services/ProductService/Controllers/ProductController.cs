@@ -1,5 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using ProductService.Models;
+using ProductService.Data;
+using Microsoft.EntityFrameworkCore;
 
 namespace ProductService.Controllers
 {
@@ -7,49 +9,67 @@ namespace ProductService.Controllers
     [Route("api/products")]
     public class ProductController : ControllerBase
     {
-        private static List<Product> products = new()
-        {
-            new Product { Id = 1, Name = "Клавиатура", Sku = "KB001", Quantity = 10 },
-            new Product { Id = 2, Name = "Мышь", Sku = "MS002", Quantity = 25 }
-        };
+        private readonly ProductDbContext _db;
 
+        public ProductController(ProductDbContext db)
+        {
+            _db = db;
+        }
+
+        // Получить все товары
         [HttpGet]
         public IActionResult GetAll()
         {
+            var products = _db.Products.ToList();
             return Ok(products);
         }
 
-        //Создание нового товара
-        [HttpPost]
-        public IActionResult Create(Product product)
+        // Получить товар по id
+        [HttpGet("{id}")]
+        public IActionResult GetById(int id)
         {
-            product.Id = products.Count + 1;
-            products.Add(product);
+            var product = _db.Products.Find(id);
+            if (product == null)
+                return NotFound();
+
             return Ok(product);
         }
 
-        //Редактирование товара по id
+        // Создание нового товара
+        [HttpPost]
+        public IActionResult Create(Product product)
+        {
+            _db.Products.Add(product);
+            _db.SaveChanges();
+            return Ok(product);
+        }
+
+        // Обновление товара
         [HttpPut("{id}")]
         public IActionResult Update(int id, Product product)
         {
-            var existing = products.FirstOrDefault(p => p.Id == id);
-            if (existing == null) return NotFound();
+            var existing = _db.Products.Find(id);
+            if (existing == null)
+                return NotFound();
 
             existing.Name = product.Name;
             existing.Sku = product.Sku;
             existing.Quantity = product.Quantity;
 
+            _db.SaveChanges();
             return Ok(existing);
         }
 
-        //Удаление товара по id
+        // Удаление товара
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
-            var product = products.FirstOrDefault(p => p.Id == id);
-            if (product == null) return NotFound();
+            var product = _db.Products.Find(id);
+            if (product == null)
+                return NotFound();
 
-            products.Remove(product);
+            _db.Products.Remove(product);
+            _db.SaveChanges();
             return Ok();
         }
     }

@@ -1,4 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Net.Http.Json;
 
 namespace ApiGateway.Controllers
 {
@@ -13,6 +14,7 @@ namespace ApiGateway.Controllers
             _http = factory.CreateClient();
         }
 
+        // Получение всех товаров
         [HttpGet]
         public async Task<IActionResult> Get()
         {
@@ -21,7 +23,7 @@ namespace ApiGateway.Controllers
             return Content(result, "application/json");
         }
 
-        //Создание нового товара
+        // Создание нового товара
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] object product)
         {
@@ -34,7 +36,7 @@ namespace ApiGateway.Controllers
             return Content(result, "application/json");
         }
 
-        //Редактирование товара по id
+        // Обновление товара
         [HttpPut("{id}")]
         public async Task<IActionResult> Update(int id, [FromBody] object product)
         {
@@ -47,7 +49,7 @@ namespace ApiGateway.Controllers
             return Content(result, "application/json");
         }
 
-        //Удаление товара по id
+        // Удаление товара
         [HttpDelete("{id}")]
         public async Task<IActionResult> Delete(int id)
         {
@@ -57,6 +59,5 @@ namespace ApiGateway.Controllers
 
             return Ok();
         }
-
     }
 }
