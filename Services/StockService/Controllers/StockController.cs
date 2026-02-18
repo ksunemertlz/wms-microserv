@@ -28,5 +28,20 @@ namespace StockService.Controllers
             _db.SaveChanges();
             return Ok(item);
         }
+
+        [HttpPut("decrease")]
+        public IActionResult DecreaseStock(int productId, int quantity)
+        {
+            var item = _db.Stock.FirstOrDefault(x => x.ProductId == productId);
+            if (item == null) return NotFound();
+
+            if (item.Quantity < quantity)
+                return BadRequest("Недостаточно товара");
+
+            item.Quantity -= quantity;
+            _db.SaveChanges();
+
+            return Ok(item);
+        }
     }
 }

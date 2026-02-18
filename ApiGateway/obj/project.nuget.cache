@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "DtKOKF3lFao=",
+  "dgSpecHash": "XBLu68uwY3U=",
   "success": true,
-  "projectFilePath": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/ApiGateway/ApiGateway.csproj",
+  "projectFilePath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/ApiGateway/ApiGateway.csproj",
   "expectedPackageFiles": [
     "/Users/ksunemertlz/.nuget/packages/microsoft.aspnetcore.openapi/8.0.19/microsoft.aspnetcore.openapi.8.0.19.nupkg.sha512",
     "/Users/ksunemertlz/.nuget/packages/microsoft.extensions.apidescription.server/6.0.5/microsoft.extensions.apidescription.server.6.0.5.nupkg.sha512",

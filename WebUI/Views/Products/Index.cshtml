@@ -1,27 +1,33 @@
-<h2>Товары</h2>
+@model List<WebUI.Models.ProductWithStock>
 
-<a href="/Products/Create">Добавить товар</a>
+<h2>Товары и остатки</h2>
 
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Название</th>
-        <th>Артикул</th>
-        <th>Количество</th>
-        <th>Действия</th>
-    </tr>
-
-@foreach (var p in Model)
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Название</th>
+            <th>Артикул</th>
+            <th>Остаток</th>
+            <th>Изменить</th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model)
 {
-    <tr>
-        <td>@p.Id</td>
-        <td>@p.Name</td>
-        <td>@p.Sku</td>
-        <td>@p.Quantity</td>
-        <td>
-            <a href="/Products/Edit/@p.Id">Изменить</a> |
-            <a href="/Products/Delete/@p.Id">Удалить</a>
-        </td>
-    </tr>
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Sku</td>
+            <td>@item.Quantity</td>
+            <td>
+                <form method="post" action="/Products/UpdateStock">
+                    <input type="hidden" name="id" value="@item.Id" />
+                    <input type="number" name="quantity" value="@item.Quantity" />
+                    <button type="submit">Сохранить</button>
+                </form>
+            </td>
+        </tr>
 }
+    </tbody>
 </table>

@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ksunemertlz/Desktop/диплом/wms-microserv/Services/StockService/StockService.csproj": {}
+    "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/StockService.csproj": {}
   },
   "projects": {
-    "/Users/ksunemertlz/Desktop/диплом/wms-microserv/Services/StockService/StockService.csproj": {
+    "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/StockService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/Services/StockService/StockService.csproj",
+        "projectUniqueName": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/StockService.csproj",
         "projectName": "StockService",
-        "projectPath": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/Services/StockService/StockService.csproj",
+        "projectPath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/StockService.csproj",
         "packagesPath": "/Users/ksunemertlz/.nuget/packages/",
-        "outputPath": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/Services/StockService/obj/",
+        "outputPath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/Users/ksunemertlz/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Net.Http.Json;
+using WebUI.Models;
 
 namespace WebUI.Controllers
 {
+    [ApiController]
+    [Route("api/stock")]
     public class StockController : Controller
     {
         private readonly HttpClient _http;
@@ -12,13 +15,14 @@ namespace WebUI.Controllers
             _http = factory.CreateClient();
         }
 
-        public async Task<IActionResult> Index()
+        [HttpGet]
+        public async Task<IActionResult> Get()
         {
-            var stock = await _http.GetFromJsonAsync<object>(
+            var result = await _http.GetStringAsync(
                 "http://localhost:5170/api/stock"
             );
 
-            return View(stock);
+            return Content(result, "application/json");
         }
     }
 }

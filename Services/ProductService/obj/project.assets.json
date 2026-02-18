@@ -2738,11 +2738,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/Services/ProductService/ProductService.csproj",
+      "projectUniqueName": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/ProductService/ProductService.csproj",
       "projectName": "ProductService",
-      "projectPath": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/Services/ProductService/ProductService.csproj",
+      "projectPath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/ProductService/ProductService.csproj",
       "packagesPath": "/Users/ksunemertlz/.nuget/packages/",
-      "outputPath": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/Services/ProductService/obj/",
+      "outputPath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/ProductService/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ksunemertlz/.nuget/NuGet/NuGet.Config"

@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "O1KUt9b7Ldg=",
+  "dgSpecHash": "1Xmx/ZBM8tM=",
   "success": true,
-  "projectFilePath": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/Services/ProductService/ProductService.csproj",
+  "projectFilePath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/ProductService/ProductService.csproj",
   "expectedPackageFiles": [
     "/Users/ksunemertlz/.nuget/packages/humanizer.core/2.14.1/humanizer.core.2.14.1.nupkg.sha512",
     "/Users/ksunemertlz/.nuget/packages/microsoft.aspnetcore.openapi/8.0.19/microsoft.aspnetcore.openapi.8.0.19.nupkg.sha512",

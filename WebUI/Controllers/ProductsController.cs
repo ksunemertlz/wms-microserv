@@ -15,12 +15,13 @@ namespace WebUI.Controllers
 
         public async Task<IActionResult> Index()
         {
-                var products = await _http.GetFromJsonAsync<List<Product>>(
+            var products = await _http.GetFromJsonAsync<List<ProductWithStock>>(
                 "http://localhost:5170/api/products"
             );
 
             return View(products);
         }
+
 
         [HttpGet]
         public IActionResult Create()
@@ -71,6 +72,18 @@ namespace WebUI.Controllers
 
             return RedirectToAction("Index");
         }
+
+        [HttpPost]
+        public async Task<IActionResult> UpdateStock(int id, int quantity)
+        {
+            await _http.PutAsJsonAsync(
+                $"http://localhost:5170/api/stock/{id}",
+                new { Quantity = quantity }
+            );
+
+            return RedirectToAction("Index");
+        }
+
 
     }
 }

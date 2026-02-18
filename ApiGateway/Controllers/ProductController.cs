@@ -23,17 +23,30 @@ namespace ApiGateway.Controllers
             return Content(result, "application/json");
         }
 
-        // Создание нового товара
+        // ✅ Создание нового товара + создание записи в Stock
         [HttpPost]
         public async Task<IActionResult> Create([FromBody] object product)
         {
-            var response = await _http.PostAsJsonAsync(
+            // 1. Создаём продукт
+            var productResponse = await _http.PostAsJsonAsync(
                 "http://localhost:5046/api/products",
                 product
             );
 
-            var result = await response.Content.ReadAsStringAsync();
-            return Content(result, "application/json");
+            var createdProduct = await productResponse.Content
+                .ReadFromJsonAsync<dynamic>();
+
+            // 2. Создаём остаток для продукта
+            await _http.PostAsJsonAsync(
+                "http://localhost:5261/api/stock",
+                new
+                {
+                    productId = createdProduct.id,
+                    quantity = 0
+                }
+            );
+
+            return Ok(createdProduct);
         }
 
         // Обновление товара

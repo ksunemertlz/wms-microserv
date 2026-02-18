@@ -487,11 +487,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/ApiGateway/ApiGateway.csproj",
+      "projectUniqueName": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/ApiGateway/ApiGateway.csproj",
       "projectName": "ApiGateway",
-      "projectPath": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/ApiGateway/ApiGateway.csproj",
+      "projectPath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/ApiGateway/ApiGateway.csproj",
       "packagesPath": "/Users/ksunemertlz/.nuget/packages/",
-      "outputPath": "/Users/ksunemertlz/Desktop/диплом/wms-microserv/ApiGateway/obj/",
+      "outputPath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/ApiGateway/obj/",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "/Users/ksunemertlz/.nuget/NuGet/NuGet.Config"
