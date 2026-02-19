@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ProductService", "Services\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "StockService", "Services\StockService\StockService.csproj", "{EF48F717-8C76-4E52-90A4-79860E2B803E}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SupplierService", "Services\SupplierService\SupplierService.csproj", "{DEEC285A-8913-45BE-A2A8-FD7B7DE7F4D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -44,10 +46,15 @@ Global
 		{EF48F717-8C76-4E52-90A4-79860E2B803E}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EF48F717-8C76-4E52-90A4-79860E2B803E}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EF48F717-8C76-4E52-90A4-79860E2B803E}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DEEC285A-8913-45BE-A2A8-FD7B7DE7F4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DEEC285A-8913-45BE-A2A8-FD7B7DE7F4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DEEC285A-8913-45BE-A2A8-FD7B7DE7F4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DEEC285A-8913-45BE-A2A8-FD7B7DE7F4D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{06BA2453-8EE6-4F38-BFEC-4C3EDB9C3748} = {1C21DB10-D307-429A-926E-CECE2B33AC85}
 		{9356856E-666C-41D9-B476-3367832287BF} = {1C21DB10-D307-429A-926E-CECE2B33AC85}
 		{EF48F717-8C76-4E52-90A4-79860E2B803E} = {1C21DB10-D307-429A-926E-CECE2B33AC85}
+		{DEEC285A-8913-45BE-A2A8-FD7B7DE7F4D9} = {1C21DB10-D307-429A-926E-CECE2B33AC85}
 	EndGlobalSection
 EndGlobal

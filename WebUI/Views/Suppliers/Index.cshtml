@@ -1,0 +1,20 @@
+@model List<WebUI.Models.SupplierViewModel>
+
+<h2>Поставщики</h2>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var supplier in Model)
+    {
+        <div>
+            <b>@supplier.Name</b>
+            <a href="/Suppliers/Products/@supplier.Id">
+                Посмотреть товары
+            </a>
+        </div>
+    }
+}
+else
+{
+    <p>Поставщиков пока нет</p>
+}
