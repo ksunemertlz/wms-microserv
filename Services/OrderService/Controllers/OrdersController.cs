@@ -11,7 +11,7 @@ namespace OrderService.Controllers
         private readonly OrderDbContext _db;
         private readonly HttpClient _http;
 
-        public OrdersController(OrderDbContext db)
+        public OrdersController(OrderDbContext db, IHttpClientFactory factory)
         {
             _db = db;
             _http = factory.CreateClient();
@@ -26,18 +26,17 @@ namespace OrderService.Controllers
         [HttpPost]
         public async Task<IActionResult> Create(Order order)
         {
-            // уменьшаем склад
-            var response = await _http.PutAsync(
-                $"http://localhost:5261/api/stock/decrease?productId={order.ProductId}&quantity=1",
-                null
-            );
+            var product = await _http.GetFromJsonAsync<ProductDto>(
+                $"http://localhost:5046/api/products/{order.ProductId}");
 
-            if (!response.IsSuccessStatusCode)
-                return BadRequest("Не удалось списать товар");
+            if (product == null)
+                return NotFound("Product not found");
 
-            // сохраняем заказ
+            if (product.Quantity < order.Quantity)
+                return BadRequest("Not enough stock");
+
             _db.Orders.Add(order);
-            _db.SaveChanges();
+            await _db.SaveChangesAsync();
 
             return Ok(order);
         }

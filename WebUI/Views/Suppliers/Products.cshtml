@@ -1,5 +1,25 @@
+@model List<WebUI.Models.Product>
+
 <h2>Товары поставщика</h2>
 
-<pre>
-@ViewBag.Data
-</pre>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Id</th>
+            <th>Название</th>
+            <th>SKU</th>
+            <th>Количество</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Id</td>
+                <td>@item.Name</td>
+                <td>@item.Sku</td>
+                <td>@item.Quantity</td>
+            </tr>
+        }
+    </tbody>
+</table>

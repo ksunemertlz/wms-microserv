@@ -6,5 +6,7 @@ namespace OrderService.Models
         public string OrderNumber { get; set; }
         public DateTime Date { get; set; }
         public string Status { get; set; } 
+        public int ProductId { get; set; }   
+        public int Quantity { get; set; }    
     }
 }

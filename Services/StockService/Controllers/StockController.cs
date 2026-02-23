@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using StockService.Data;
 using StockService.Models;
 
 namespace StockService.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("api/stock")]
     public class StockController : ControllerBase

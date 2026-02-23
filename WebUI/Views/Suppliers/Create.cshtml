@@ -1,0 +1,22 @@
+@model WebUI.Models.SupplierViewModel
+
+<h2>Добавить поставщика</h2>
+
+<form asp-action="Create" method="post">
+    <div>
+        <label>Название</label>
+        <input asp-for="Name" />
+    </div>
+
+    <div>
+        <label>Телефон</label>
+        <input asp-for="Phone" />
+    </div>
+
+    <div>
+        <label>Email</label>
+        <input asp-for="Email" />
+    </div>
+
+    <button type="submit">Сохранить</button>
+</form>

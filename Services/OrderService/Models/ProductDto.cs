@@ -1,0 +1,8 @@
+namespace OrderService.Models
+{
+    public class ProductDto
+    {
+        public int Id { get; set; }
+        public int Quantity { get; set; }
+    }
+}

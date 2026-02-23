@@ -104,3 +104,11 @@
 /Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/obj/Debug/net8.0/SupplierService.pdb
 /Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/obj/Debug/net8.0/SupplierService.genruntimeconfig.cache
 /Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/obj/Debug/net8.0/ref/SupplierService.dll
+/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/bin/Debug/net8.0/Microsoft.AspNetCore.Authentication.JwtBearer.dll
+/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/bin/Debug/net8.0/Microsoft.IdentityModel.Abstractions.dll
+/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/bin/Debug/net8.0/Microsoft.IdentityModel.JsonWebTokens.dll
+/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/bin/Debug/net8.0/Microsoft.IdentityModel.Logging.dll
+/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.dll
+/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/bin/Debug/net8.0/Microsoft.IdentityModel.Protocols.OpenIdConnect.dll
+/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/bin/Debug/net8.0/Microsoft.IdentityModel.Tokens.dll
+/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/SupplierService/bin/Debug/net8.0/System.IdentityModel.Tokens.Jwt.dll

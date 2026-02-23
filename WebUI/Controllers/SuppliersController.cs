@@ -27,16 +27,27 @@ namespace WebUI.Controllers
             return View(suppliers);
         }
 
-
-         public async Task<IActionResult> Products(int id)
+        [HttpGet]
+        public IActionResult Create()
         {
-            var json = await _http.GetStringAsync(
-                $"http://localhost:5170/api/suppliers/{id}/products"
-            );
-
-            ViewBag.Data = json;
             return View();
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Create(SupplierViewModel model)
+        {
+            var content = new StringContent(
+                JsonSerializer.Serialize(model),
+                System.Text.Encoding.UTF8,
+                "application/json"
+            );
+
+            await _http.PostAsync(
+                "http://localhost:5170/api/suppliers",
+                content
+            );
+
+            return RedirectToAction("Index");
+        }
     }
 }

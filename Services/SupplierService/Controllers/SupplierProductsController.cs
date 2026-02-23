@@ -1,9 +1,11 @@
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 using SupplierService.Data;
 using SupplierService.Models;
 
 namespace SupplierService.Controllers
 {
+    //[Authorize]
     [ApiController]
     [Route("api/supplier-products")]
     public class SupplierProductsController : ControllerBase

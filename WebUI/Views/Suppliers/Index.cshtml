@@ -2,6 +2,10 @@
 
 <h2>Поставщики</h2>
 
+<a asp-action="Create" class="btn btn-primary">
+    Добавить поставщика
+</a>
+
 @if (Model != null && Model.Any())
 {
     foreach (var supplier in Model)
