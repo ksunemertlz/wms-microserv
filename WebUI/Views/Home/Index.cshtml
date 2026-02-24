@@ -1,5 +1,37 @@
-﻿@{
-    ViewData["Title"] = "Home Page";
-}
-<h2>Warehouse Management System</h2>
-<p>Выберите раздел в меню</p>
+﻿<h2 class="mb-4">Dashboard</h2>
+
+<div class="row g-4">
+
+    <div class="col-md-3">
+        <a asp-controller="Products" asp-action="Index" class="text-decoration-none">
+            <div class="dashboard-card bg-products">
+                📦 Products
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a asp-controller="Suppliers" asp-action="Index" class="text-decoration-none">
+            <div class="dashboard-card bg-suppliers">
+                🚚 Suppliers
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a asp-controller="Orders" asp-action="Index" class="text-decoration-none">
+            <div class="dashboard-card bg-orders">
+                🧾 Orders
+            </div>
+        </a>
+    </div>
+
+    <div class="col-md-3">
+        <a asp-controller="Stock" asp-action="Index" class="text-decoration-none">
+            <div class="dashboard-card bg-stock">
+                🏬 Stock
+            </div>
+        </a>
+    </div>
+
+</div>

@@ -9,68 +9,22 @@
     <link rel="stylesheet" href="~/WebUI.styles.css" asp-append-version="true" />
 </head>
 <body>
-    <header>
-       <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+        <header>
+        <nav class="navbar navbar-expand-lg navbar-dark">
             <div class="container-fluid">
-                <a class="navbar-brand fw-bold" asp-controller="Home" asp-action="Index">
+                <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                     WMS System
                 </a>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                        data-bs-target="#mainNavbar">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
-
-                <div class="collapse navbar-collapse" id="mainNavbar">
-                    <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-
-                        <!-- Главная -->
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">
-                                Dashboard
-                            </a>
-                        </li>
-
-                        <!-- Товары -->
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Products" asp-action="Index">
-                                Products
-                            </a>
-                        </li>
-
-                        <!-- Поставщики -->
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Suppliers" asp-action="Index">
-                                Suppliers
-                            </a>
-                        </li>
-
-                        <!-- Заказы -->
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Orders" asp-action="Index">
-                                Orders
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Stock" asp-action="Index">
-                                Stocks
-                            </a>
-                        </li>
-
-                        <!-- Авторизация -->
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Auth" asp-action="Login">
-                                Login
-                            </a>
-                        </li>
-
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Auth" asp-action="Register">
-                                Register
-                            </a>
-                        </li>
-                    </ul>
+                <div class="ms-auto text-white">
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <span>👤 @User.Identity.Name</span>
+                    }
+                    else
+                    {
+                        <a class="nav-link d-inline" asp-controller="Account" asp-action="Login">Login</a>
+                    }
                 </div>
             </div>
         </nav>

@@ -1,4 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
+using System.Text.Json;
+using WebUI.Models;
 
 namespace WebUI.Controllers
 {
@@ -17,8 +19,15 @@ namespace WebUI.Controllers
                 "http://localhost:5170/api/orders"
             );
 
-            ViewBag.Data = json;
-            return View();
+            var orders = JsonSerializer.Deserialize<List<Order>>(
+                json,
+                new JsonSerializerOptions
+                {
+                    PropertyNameCaseInsensitive = true
+                }
+            );
+
+            return View(orders);
         }
     }
 }
