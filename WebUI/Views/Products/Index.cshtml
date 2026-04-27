@@ -1,33 +1,52 @@
 @model List<WebUI.Models.ProductWithStock>
 
-<h2>Товары и остатки</h2>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>ID</th>
-            <th>Название</th>
-            <th>Артикул</th>
-            <th>Остаток</th>
-            <th>Изменить</th>
-        </tr>
-    </thead>
-    <tbody>
-@foreach (var item in Model)
-{
-        <tr>
-            <td>@item.Id</td>
-            <td>@item.Name</td>
-            <td>@item.Sku</td>
-            <td>@item.Quantity</td>
-            <td>
-                <form method="post" action="/Products/UpdateStock">
-                    <input type="hidden" name="id" value="@item.Id" />
-                    <input type="number" name="quantity" value="@item.Quantity" />
-                    <button type="submit">Сохранить</button>
-                </form>
-            </td>
-        </tr>
+@{
+    ViewData["Title"] = "Товары и остатки";
 }
-    </tbody>
-</table>
+
+<div class="products-page">
+    <div class="page-header">
+        <h2>📦 Товары и остатки</h2>
+        <p class="text-muted">Управление остатками товаров на складе</p>
+    </div>
+
+    <div class="table-responsive">
+        <table class="products-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Название</th>
+                    <th>Артикул</th>
+                    <th>Остаток</th>
+                    <th>Изменить остаток</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="product-row">
+                        <td class="product-id">@item.Id</td>
+                        <td class="product-name">@item.Name</td>
+                        <td class="product-sku">@item.Sku</td>
+                        <td class="product-quantity">
+                            <span class="quantity-badge @(item.Quantity <= 0 ? "out-of-stock" : item.Quantity < 10 ? "low-stock" : "in-stock")">
+                                @item.Quantity
+                            </span>
+                        </td>
+                        <td class="update-stock">
+                            <form method="post" action="/Products/UpdateStock" class="update-form">
+                                <input type="hidden" name="id" value="@item.Id" />
+                                <div class="input-group">
+                                    <input type="number" name="quantity" value="@item.Quantity" class="stock-input" step="1" />
+                                    <button type="submit" class="btn-save">
+                                        💾 Сохранить
+                                    </button>
+                                </div>
+                            </form>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>

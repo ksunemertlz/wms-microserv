@@ -2,23 +2,27 @@
 
 <h2>Поставщики</h2>
 
-<a asp-action="Create" class="btn btn-primary">
-    Добавить поставщика
+<a asp-action="Create" class="btn btn-primary mb-3">
+    + Добавить поставщика
 </a>
 
 @if (Model != null && Model.Any())
 {
-    foreach (var supplier in Model)
-    {
-        <div>
-            <b>@supplier.Name</b>
-            <a href="/Suppliers/Products/@supplier.Id">
-                Посмотреть товары
-            </a>
-        </div>
-    }
+    <div class="suppliers-grid">
+        @foreach (var supplier in Model)
+        {
+            <div class="supplier-card">
+                <div class="supplier-name">@supplier.Name</div>
+                <a href="/Suppliers/Products/@supplier.Id" class="supplier-link">
+                    📦 Посмотреть товары
+                </a>
+            </div>
+        }
+    </div>
 }
 else
 {
-    <p>Поставщиков пока нет</p>
+    <div class="empty-state">
+        <p>📭 Поставщиков пока нет</p>
+    </div>
 }

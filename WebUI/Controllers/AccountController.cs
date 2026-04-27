@@ -17,6 +17,11 @@ namespace WebUI.Controllers
         {
             return View();
         }
+        public IActionResult Logout()
+        {
+            HttpContext.Session.Clear();
+            return RedirectToAction("Login");
+        }
 
         [HttpPost]
         public async Task<IActionResult> Login(string username, string password)

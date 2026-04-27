@@ -1,37 +1,48 @@
-﻿<h2 class="mb-4">Dashboard</h2>
-
-<div class="row g-4">
-
-    <div class="col-md-3">
-        <a asp-controller="Products" asp-action="Index" class="text-decoration-none">
-            <div class="dashboard-card bg-products">
-                📦 Products
-            </div>
-        </a>
+﻿<div class="dashboard-container">
+    <div class="dashboard-header">
+        <h2>🏠 Панель управления</h2>
+        <p>Быстрый доступ к разделам системы</p>
     </div>
 
-    <div class="col-md-3">
-        <a asp-controller="Suppliers" asp-action="Index" class="text-decoration-none">
-            <div class="dashboard-card bg-suppliers">
-                🚚 Suppliers
-            </div>
-        </a>
-    </div>
+    <div class="row g-4">
+        <div class="col-md-3 col-sm-6">
+            <a asp-controller="Products" asp-action="Index" class="dashboard-link">
+                <div class="dashboard-card card-products">
+                    <div class="card-icon">📦</div>
+                    <div class="card-title">Товары</div>
+                    <div class="card-desc">Управление товарами</div>
+                </div>
+            </a>
+        </div>
 
-    <div class="col-md-3">
-        <a asp-controller="Orders" asp-action="Index" class="text-decoration-none">
-            <div class="dashboard-card bg-orders">
-                🧾 Orders
-            </div>
-        </a>
-    </div>
+        <div class="col-md-3 col-sm-6">
+            <a asp-controller="Suppliers" asp-action="Index" class="dashboard-link">
+                <div class="dashboard-card card-suppliers">
+                    <div class="card-icon">🚚</div>
+                    <div class="card-title">Поставщики</div>
+                    <div class="card-desc">Список поставщиков</div>
+                </div>
+            </a>
+        </div>
 
-    <div class="col-md-3">
-        <a asp-controller="Stock" asp-action="Index" class="text-decoration-none">
-            <div class="dashboard-card bg-stock">
-                🏬 Stock
-            </div>
-        </a>
-    </div>
+        <div class="col-md-3 col-sm-6">
+            <a asp-controller="Orders" asp-action="Index" class="dashboard-link">
+                <div class="dashboard-card card-orders">
+                    <div class="card-icon">🧾</div>
+                    <div class="card-title">Заказы</div>
+                    <div class="card-desc">Все заказы</div>
+                </div>
+            </a>
+        </div>
 
+        <div class="col-md-3 col-sm-6">
+            <a asp-controller="Stock" asp-action="Index" class="dashboard-link">
+                <div class="dashboard-card card-stock">
+                    <div class="card-icon">🏬</div>
+                    <div class="card-title">Остатки</div>
+                    <div class="card-desc">Складские остатки</div>
+                </div>
+            </a>
+        </div>
+    </div>
 </div>

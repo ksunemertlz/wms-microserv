@@ -20,3 +20,997 @@ html {
 body {
   margin-bottom: 60px;
 }
+/* ===== Карточки поставщиков ===== */
+.suppliers-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+}
+
+.supplier-card {
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s, box-shadow 0.2s;
+    padding: 1.25rem;
+    border: 1px solid #e9ecef;
+}
+
+.supplier-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 20px rgba(0, 0, 0, 0.1);
+}
+
+.supplier-name {
+    font-size: 1.25rem;
+    font-weight: 600;
+    margin-bottom: 0.75rem;
+    color: #1e2a3a;
+}
+
+.supplier-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    background-color: #f8f9fa;
+    padding: 0.4rem 1rem;
+    border-radius: 2rem;
+    text-decoration: none;
+    font-size: 0.85rem;
+    font-weight: 500;
+    color: #0d6efd;
+    transition: background-color 0.2s;
+}
+
+.supplier-link:hover {
+    background-color: #e9ecef;
+    color: #0a58ca;
+    text-decoration: none;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 3rem;
+    background: #f8f9fa;
+    border-radius: 1rem;
+    color: #6c757d;
+    margin-top: 1.5rem;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+    border-radius: 2rem;
+    padding: 0.5rem 1.25rem;
+    font-weight: 500;
+    transition: all 0.2s;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    transform: scale(1.02);
+}
+/* ===== Общие стили для страницы логина ===== */
+body:has(.login-container) {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+}
+
+.login-container {
+    background: white;
+    border-radius: 28px;
+    box-shadow: 0 25px 45px rgba(0, 0, 0, 0.2);
+    padding: 2.5rem 2rem;
+    width: 100%;
+    max-width: 450px;
+    transition: transform 0.2s;
+}
+
+.login-container:hover {
+    transform: translateY(-5px);
+}
+
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1e293b;
+    font-weight: 700;
+    font-size: 1.8rem;
+}
+
+.form-group {
+    margin-bottom: 1.25rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: #334155;
+    font-size: 0.9rem;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 16px;
+    border: 2px solid #e2e8f0;
+    border-radius: 16px;
+    font-size: 1rem;
+    transition: all 0.2s;
+    box-sizing: border-box;
+}
+
+.form-group input:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.btn-login {
+    width: 100%;
+    padding: 12px;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: 0.2s;
+    margin-top: 0.5rem;
+}
+
+.btn-login:hover {
+    transform: scale(1.02);
+    box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+}
+
+.error-message {
+    background: #fee2e2;
+    border-left: 5px solid #dc2626;
+    padding: 0.75rem 1rem;
+    border-radius: 12px;
+    margin-bottom: 1.5rem;
+    color: #b91c1c;
+    font-weight: 500;
+}
+
+/* ===== Стили для шапки с пользователем ===== */
+header {
+    background: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+    border-bottom: 1px solid #eef2ff;
+}
+
+header a {
+    text-decoration: none;
+    color: #4a5568;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+header a:hover {
+    color: #667eea;
+}
+
+header span {
+    font-weight: 600;
+    color: #2d3748;
+    margin-right: 15px;
+}
+/* ===== Стили для страницы логина ===== */
+/* Это сработает только на странице с классом "login-layout" */
+.login-layout {
+    min-height: 100vh;
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Центрируем контейнер с формой */
+.login-container {
+    max-width: 450px;
+    margin: 0 auto;
+    padding: 2rem;
+    background: white;
+    border-radius: 24px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+    margin-top: 5vh;  /* отступ от хедера */
+}
+
+/* Стилизация полей и кнопки (как раньше) */
+.login-container h2 {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    color: #1e2a3a;
+}
+
+.login-container .form-group {
+    margin-bottom: 1.25rem;
+}
+
+.login-container .form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.login-container .form-group input {
+    width: 100%;
+    padding: 0.75rem;
+    border: 1px solid #ced4da;
+    border-radius: 12px;
+    transition: 0.2s;
+}
+
+.login-container .form-group input:focus {
+    border-color: #667eea;
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(102, 126, 234, 0.2);
+}
+
+.login-container .btn-login {
+    width: 100%;
+    padding: 0.75rem;
+    background: linear-gradient(135deg, #667eea, #764ba2);
+    border: none;
+    border-radius: 40px;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.login-container .btn-login:hover {
+    transform: scale(1.02);
+}
+
+.login-container .error-message {
+    background-color: #f8d7da;
+    color: #842029;
+    padding: 0.75rem;
+    border-radius: 12px;
+    margin-bottom: 1rem;
+}
+/* ===== КРАСИВЫЙ HEADER (навбар) ===== */
+
+/* Основной контейнер навбара */
+.navbar {
+    background: linear-gradient(90deg, #1e2a3a 0%, #0f172a 100%) !important;
+    padding: 0.8rem 1.5rem;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+    border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+    transition: all 0.3s ease;
+}
+
+/* Логотип / бренд */
+.navbar-brand {
+    font-size: 1.6rem;
+    font-weight: 700;
+    letter-spacing: -0.5px;
+    background: linear-gradient(135deg, #fff, #a5f3fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent !important;
+    text-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s;
+}
+
+.navbar-brand:hover {
+    transform: scale(1.02);
+    background: linear-gradient(135deg, #fff, #7dd3fc);
+    background-clip: text;
+    -webkit-background-clip: text;
+}
+
+/* Ссылки в навбаре (если появятся) */
+.navbar-nav .nav-link {
+    color: #cbd5e1 !important;
+    font-weight: 500;
+    margin: 0 0.25rem;
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    transition: all 0.2s ease;
+}
+
+.navbar-nav .nav-link:hover {
+    color: white !important;
+    background-color: rgba(255, 255, 255, 0.1);
+    transform: translateY(-1px);
+}
+
+/* Блок справа (имя пользователя + кнопка) */
+.ms-auto {
+    display: flex;
+    align-items: center;
+    gap: 1.2rem;
+}
+
+/* Имя пользователя */
+.ms-auto span {
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.12);
+    padding: 0.4rem 1rem;
+    border-radius: 40px;
+    backdrop-filter: blur(4px);
+    font-size: 0.95rem;
+    letter-spacing: 0.3px;
+    color: #f1f5f9;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+/* Кнопка "Войти" / "Выйти" */
+.ms-auto a.nav-link {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.4rem 1.2rem;
+    border-radius: 40px;
+    font-weight: 600;
+    transition: all 0.2s ease;
+    text-decoration: none;
+}
+
+.ms-auto a.nav-link[asp-controller="Account"][asp-action="Login"] {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    color: white !important;
+    box-shadow: 0 2px 8px rgba(59, 130, 246, 0.3);
+}
+
+.ms-auto a.nav-link[asp-controller="Account"][asp-action="Login"]:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    transform: scale(1.03);
+    box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+}
+
+.ms-auto a.nav-link[asp-controller="Account"][asp-action="Logout"] {
+    background: rgba(220, 38, 38, 0.2);
+    border: 1px solid rgba(220, 38, 38, 0.4);
+    color: #fecaca !important;
+}
+
+.ms-auto a.nav-link[asp-controller="Account"][asp-action="Logout"]:hover {
+    background: rgba(220, 38, 38, 0.4);
+    color: white !important;
+    border-color: #ef4444;
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .navbar {
+        padding: 0.6rem 1rem;
+    }
+    .navbar-brand {
+        font-size: 1.3rem;
+    }
+    .ms-auto span {
+        font-size: 0.8rem;
+        padding: 0.3rem 0.8rem;
+    }
+    .ms-auto a.nav-link {
+        padding: 0.3rem 0.9rem;
+        font-size: 0.85rem;
+    }
+    .ms-auto {
+        gap: 0.7rem;
+    }
+}
+
+/* Добавляем лёгкую анимацию появления */
+.navbar {
+    animation: slideDown 0.5s ease;
+}
+
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+/* ===== СТРАНИЦА ТОВАРОВ ===== */
+.products-page {
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 24px;
+    margin: 1rem 0;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+    border-left: 5px solid #3b82f6;
+    padding-left: 1.2rem;
+}
+
+.page-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.3rem;
+}
+
+.page-header .text-muted {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Таблица */
+.products-table {
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.products-table thead tr {
+    background: linear-gradient(135deg, #1e2a3a 0%, #0f172a 100%);
+    color: white;
+}
+
+.products-table th {
+    padding: 1rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    border-bottom: 2px solid #334155;
+}
+
+.products-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    vertical-align: middle;
+    background-color: white;
+    transition: background-color 0.2s;
+}
+
+.products-table tbody tr:hover td {
+    background-color: #f1f5f9;
+}
+
+/* ID товара */
+.product-id {
+    font-weight: 600;
+    color: #3b82f6;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* Название товара */
+.product-name {
+    font-weight: 600;
+    color: #1e293b;
+}
+
+/* Артикул */
+.product-sku {
+    font-family: monospace;
+    color: #475569;
+    font-size: 0.85rem;
+    background: #f1f5f9;
+    padding: 0.2rem 0.5rem;
+    border-radius: 12px;
+    display: inline-block;
+}
+
+/* Бейджи остатков */
+.quantity-badge {
+    display: inline-block;
+    padding: 0.3rem 0.8rem;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    min-width: 55px;
+}
+
+.in-stock {
+    background: #dcfce7;
+    color: #15803d;
+    border-left: 3px solid #22c55e;
+}
+
+.low-stock {
+    background: #fef9c3;
+    color: #854d0e;
+    border-left: 3px solid #eab308;
+}
+
+.out-of-stock {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-left: 3px solid #ef4444;
+}
+
+/* Форма обновления остатка */
+.update-form {
+    margin: 0;
+}
+
+.input-group {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+}
+
+.stock-input {
+    width: 90px;
+    padding: 0.45rem 0.6rem;
+    border: 2px solid #e2e8f0;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    text-align: center;
+    font-weight: 500;
+    transition: all 0.2s;
+    background: white;
+}
+
+.stock-input:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+}
+
+.btn-save {
+    background: linear-gradient(135deg, #3b82f6, #2563eb);
+    border: none;
+    padding: 0.45rem 1rem;
+    border-radius: 40px;
+    color: white;
+    font-weight: 600;
+    font-size: 0.8rem;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.3rem;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.1);
+}
+
+.btn-save:hover {
+    background: linear-gradient(135deg, #2563eb, #1d4ed8);
+    transform: scale(1.02);
+    box-shadow: 0 4px 10px rgba(59, 130, 246, 0.3);
+}
+
+/* Адаптив для мобильных */
+@media (max-width: 768px) {
+    .products-page {
+        padding: 0.8rem;
+    }
+    .products-table th,
+    .products-table td {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .stock-input {
+        width: 65px;
+        padding: 0.3rem 0.4rem;
+    }
+    .btn-save {
+        padding: 0.3rem 0.7rem;
+        font-size: 0.7rem;
+    }
+    .product-sku {
+        font-size: 0.7rem;
+    }
+    .quantity-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+}
+/* ===== СТРАНИЦА ОСТАТКОВ ===== */
+.stocks-page {
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 24px;
+    margin: 1rem 0;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+    border-left: 5px solid #10b981;
+    padding-left: 1.2rem;
+}
+
+.page-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.3rem;
+}
+
+.page-header .text-muted {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Таблица остатков */
+.stocks-table {
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.stocks-table thead tr {
+    background: linear-gradient(135deg, #065f46 0%, #047857 100%);
+    color: white;
+}
+
+.stocks-table th {
+    padding: 1rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.stocks-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: white;
+    transition: background 0.2s;
+}
+
+.stocks-table tbody tr:hover td {
+    background-color: #ecfdf5;
+}
+
+/* ID товара */
+.stock-id {
+    font-weight: 600;
+    color: #10b981;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* Название товара */
+.stock-name {
+    font-weight: 500;
+    color: #1e293b;
+}
+
+/* Бейджи количества */
+.stock-badge {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 40px;
+    font-weight: 700;
+    font-size: 0.9rem;
+    text-align: center;
+    min-width: 65px;
+}
+
+.normal-stock {
+    background: #dcfce7;
+    color: #15803d;
+    border-left: 3px solid #22c55e;
+}
+
+.low-stock {
+    background: #fef9c3;
+    color: #854d0e;
+    border-left: 3px solid #eab308;
+}
+
+.zero-stock {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-left: 3px solid #ef4444;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .stocks-page {
+        padding: 0.8rem;
+    }
+    .stocks-table th,
+    .stocks-table td {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .stock-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.6rem;
+    }
+}
+/* ===== СТРАНИЦА ЗАКАЗОВ ===== */
+.orders-page {
+    padding: 1.5rem;
+    background: #f8fafc;
+    border-radius: 24px;
+    margin: 1rem 0;
+}
+
+.page-header {
+    margin-bottom: 2rem;
+    border-left: 5px solid #8b5cf6;
+    padding-left: 1.2rem;
+}
+
+.page-header h2 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.3rem;
+}
+
+.page-header .text-muted {
+    color: #64748b;
+    font-size: 0.9rem;
+}
+
+/* Таблица заказов */
+.orders-table {
+    width: 100%;
+    background: white;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+    border-collapse: separate;
+    border-spacing: 0;
+}
+
+.orders-table thead tr {
+    background: linear-gradient(135deg, #4c1d95 0%, #6d28d9 100%);
+    color: white;
+}
+
+.orders-table th {
+    padding: 1rem 1rem;
+    font-weight: 600;
+    font-size: 0.9rem;
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+}
+
+.orders-table td {
+    padding: 1rem;
+    border-bottom: 1px solid #e2e8f0;
+    background: white;
+    transition: background 0.2s;
+}
+
+.orders-table tbody tr:hover td {
+    background-color: #f5f3ff;
+}
+
+/* ID заказа */
+.order-id {
+    font-weight: 600;
+    color: #8b5cf6;
+    font-family: monospace;
+    font-size: 0.9rem;
+}
+
+/* Номер заказа */
+.order-number {
+    font-weight: 500;
+    color: #1e293b;
+    font-family: monospace;
+}
+
+/* Дата */
+.order-date {
+    color: #475569;
+    font-size: 0.9rem;
+}
+
+/* Бейдж статуса */
+.status-badge {
+    display: inline-block;
+    padding: 0.3rem 0.9rem;
+    border-radius: 40px;
+    font-weight: 600;
+    font-size: 0.85rem;
+    text-align: center;
+    min-width: 110px;
+    text-transform: capitalize;
+}
+
+.status-new {
+    background: #dbeafe;
+    color: #1e40af;
+    border-left: 3px solid #3b82f6;
+}
+
+.status-processing {
+    background: #fef3c7;
+    color: #92400e;
+    border-left: 3px solid #f59e0b;
+}
+
+.status-shipped {
+    background: #e0e7ff;
+    color: #3730a3;
+    border-left: 3px solid #6366f1;
+}
+
+.status-delivered {
+    background: #dcfce7;
+    color: #15803d;
+    border-left: 3px solid #22c55e;
+}
+
+.status-cancelled {
+    background: #fee2e2;
+    color: #b91c1c;
+    border-left: 3px solid #ef4444;
+}
+
+.status-default {
+    background: #f1f5f9;
+    color: #334155;
+    border-left: 3px solid #94a3b8;
+}
+
+/* Бейдж количества */
+.order-quantity .quantity-badge {
+    display: inline-block;
+    background: #f1f5f9;
+    padding: 0.2rem 0.8rem;
+    border-radius: 40px;
+    font-weight: 600;
+    color: #0f172a;
+}
+
+/* Адаптив */
+@media (max-width: 768px) {
+    .orders-page {
+        padding: 0.8rem;
+    }
+    .orders-table th,
+    .orders-table td {
+        padding: 0.6rem 0.5rem;
+        font-size: 0.8rem;
+    }
+    .status-badge {
+        font-size: 0.7rem;
+        padding: 0.2rem 0.5rem;
+        min-width: 80px;
+    }
+    .order-quantity .quantity-badge {
+        font-size: 0.75rem;
+        padding: 0.2rem 0.5rem;
+    }
+    .order-date {
+        font-size: 0.75rem;
+    }
+}
+/* ===== DASHBOARD / ГЛАВНАЯ СТРАНИЦА ===== */
+.dashboard-container {
+    padding: 1rem 0;
+}
+
+.dashboard-header {
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.dashboard-header h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #0f172a;
+    margin-bottom: 0.5rem;
+}
+
+.dashboard-header p {
+    color: #64748b;
+    font-size: 1rem;
+}
+
+/* Ссылка-обёртка карточки */
+.dashboard-link {
+    text-decoration: none;
+    display: block;
+}
+
+/* Базовая карточка */
+.dashboard-card {
+    background: white;
+    border-radius: 24px;
+    padding: 1.8rem 1rem;
+    text-align: center;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    border: 1px solid #eef2ff;
+    height: 100%;
+    min-height: 180px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.dashboard-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 30px -12px rgba(0, 0, 0, 0.2);
+}
+
+/* Иконка */
+.card-icon {
+    font-size: 3.2rem;
+    margin-bottom: 1rem;
+}
+
+/* Заголовок карточки */
+.card-title {
+    font-size: 1.4rem;
+    font-weight: 700;
+    margin-bottom: 0.4rem;
+}
+
+/* Описание */
+.card-desc {
+    font-size: 0.8rem;
+    opacity: 0.8;
+}
+
+/* Индивидуальные цвета для каждой карточки */
+.card-products {
+    background: linear-gradient(135deg, #ffffff 0%, #eff6ff 100%);
+    border-bottom: 4px solid #3b82f6;
+}
+.card-products .card-title {
+    color: #1e40af;
+}
+
+.card-suppliers {
+    background: linear-gradient(135deg, #ffffff 0%, #fef3c7 100%);
+    border-bottom: 4px solid #f59e0b;
+}
+.card-suppliers .card-title {
+    color: #b45309;
+}
+
+.card-orders {
+    background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%);
+    border-bottom: 4px solid #8b5cf6;
+}
+.card-orders .card-title {
+    color: #6b21a5;
+}
+
+.card-stock {
+    background: linear-gradient(135deg, #ffffff 0%, #dcfce7 100%);
+    border-bottom: 4px solid #22c55e;
+}
+.card-stock .card-title {
+    color: #15803d;
+}
+
+/* Адаптация для планшетов и телефонов */
+@media (max-width: 768px) {
+    .dashboard-card {
+        padding: 1.2rem 0.8rem;
+        min-height: 140px;
+    }
+    .card-icon {
+        font-size: 2.5rem;
+    }
+    .card-title {
+        font-size: 1.2rem;
+    }
+    .card-desc {
+        font-size: 0.7rem;
+    }
+    .dashboard-header h2 {
+        font-size: 1.5rem;
+    }
+}

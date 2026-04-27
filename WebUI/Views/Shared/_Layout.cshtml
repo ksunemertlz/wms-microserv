@@ -1,4 +1,7 @@
-﻿<!DOCTYPE html>
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="utf-8" />
@@ -9,37 +12,44 @@
     <link rel="stylesheet" href="~/WebUI.styles.css" asp-append-version="true" />
 </head>
 <body>
-        <header>
-        <nav class="navbar navbar-expand-lg navbar-dark">
+   @if (ViewBag.HideHeader != true)
+    {
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark" style="background-color: #1e2a3a;">
             <div class="container-fluid">
                 <a class="navbar-brand" asp-controller="Home" asp-action="Index">
                     WMS System
                 </a>
-
                 <div class="ms-auto text-white">
-                    @if (User.Identity.IsAuthenticated)
+                    @{
+                        var userName = HttpContextAccessor.HttpContext?.Session.GetString("username");
+                    }
+                    @if (!string.IsNullOrEmpty(userName))
                     {
-                        <span>👤 @User.Identity.Name</span>
+                        <span>👤 @userName</span>
+                        <a class="nav-link d-inline ms-2" asp-controller="Account" asp-action="Logout" style="color: #ffc107;">Выйти</a>
                     }
                     else
                     {
-                        <a class="nav-link d-inline" asp-controller="Account" asp-action="Login">Login</a>
+                        <a class="nav-link d-inline" asp-controller="Account" asp-action="Login">Войти</a>
                     }
                 </div>
             </div>
         </nav>
     </header>
+    }
     <div class="container">
         <main role="main" class="pb-3">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    @* <footer class="border-top footer text-muted">
         <div class="container">
             &copy; 2026 - WebUI - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
-    </footer>
+    </footer> *@
+
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
     <script src="~/js/site.js" asp-append-version="true"></script>

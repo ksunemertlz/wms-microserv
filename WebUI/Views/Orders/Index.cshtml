@@ -1,24 +1,61 @@
 @model List<WebUI.Models.Order>
 
-<h2>Заказы</h2>
-
-<table border="1">
-    <tr>
-        <th>ID</th>
-        <th>Номер заказа</th>
-        <th>Дата</th>
-        <th>Статус</th>
-        <th>Количество</th>
-    </tr>
-
-@foreach (var item in Model)
-{
-    <tr>
-        <td>@item.Id</td>
-        <td>@item.OrderNumber</td>
-        <td>@item.Date</td>
-        <td>@item.Status</td>
-        <td>@item.Quantity</td>
-    </tr>
+@{
+    ViewData["Title"] = "Заказы";
 }
-</table>
+
+<div class="orders-page">
+    <div class="page-header">
+        <h2>📋 Заказы</h2>
+        <p class="text-muted">Управление заказами и их статусами</p>
+    </div>
+
+    <div class="table-responsive">
+        <table class="orders-table">
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Номер заказа</th>
+                    <th>Дата</th>
+                    <th>Статус</th>
+                    <th>Количество (ед.)</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr class="order-row">
+                        <td class="order-id">@item.Id</td>
+                        <td class="order-number">@item.OrderNumber</td>
+                        <td class="order-date">@item.Date.ToString("dd.MM.yyyy")</td>
+                        <td class="order-status">
+                            <span class="status-badge @GetStatusClass(item.Status)">
+                                @item.Status
+                            </span>
+                        </td>
+                        <td class="order-quantity">
+                            <span class="quantity-badge">
+                                @item.Quantity
+                            </span>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    </div>
+</div>
+
+@functions {
+    string GetStatusClass(string status)
+    {
+        return status?.ToLower() switch
+        {
+            "новый" or "new" => "status-new",
+            "в обработке" or "processing" => "status-processing",
+            "отправлен" or "shipped" => "status-shipped",
+            "доставлен" or "delivered" => "status-delivered",
+            "отменён" or "cancelled" => "status-cancelled",
+            _ => "status-default"
+        };
+    }
+}
