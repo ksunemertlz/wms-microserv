@@ -1,0 +1,108 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: wms-postgres
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: wms_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - wms-network
+
+  auth-service:
+    build: ./Services/AuthService
+    ports:
+      - "5218:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - postgres
+    networks:
+      - wms-network
+
+  product-service:
+    build: ./Services/ProductService
+    ports:
+      - "5046:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - postgres
+    networks:
+      - wms-network
+
+  order-service:
+    build: ./Services/OrderService
+    ports:
+      - "5251:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - postgres
+    networks:
+      - wms-network
+
+  stock-service:
+    build: ./Services/StockService
+    ports:
+      - "5261:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - postgres
+    networks:
+      - wms-network
+
+  supplier-service:
+    build: ./Services/SupplierService
+    ports:
+      - "5214:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+    depends_on:
+      - postgres
+    networks:
+      - wms-network
+
+  api-gateway:
+    build: ./ApiGateway
+    ports:
+      - "5170:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ServiceUrls__ProductService=http://product-service:8080
+      - ServiceUrls__OrderService=http://order-service:8080
+      - ServiceUrls__StockService=http://stock-service:8080
+      - ServiceUrls__SupplierService=http://supplier-service:8080
+      - ServiceUrls__AuthService=http://auth-service:8080
+    depends_on:
+      - auth-service
+      - product-service
+      - order-service
+      - stock-service
+      - supplier-service
+    networks:
+      - wms-network
+
+  webui:
+    build: ./WebUI
+    ports:
+      - "5047:80"
+    environment:
+      - ASPNETCORE_ENVIRONMENT=Development
+      - ApiSettings__GatewayUrl=http://api-gateway:8080
+    depends_on:
+      - api-gateway
+    networks:
+      - wms-network
+
+networks:
+  wms-network:
+    driver: bridge
+
+volumes:
+  postgres_data:

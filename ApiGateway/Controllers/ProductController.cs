@@ -72,5 +72,16 @@ namespace ApiGateway.Controllers
 
             return Ok();
         }
+
+        [HttpGet("audit")]
+        public async Task<IActionResult> GetAuditLogs()
+        {
+            var response = await _http.GetAsync(
+                "http://localhost:5046/api/products/audit"
+            );
+
+            var result = await response.Content.ReadAsStringAsync();
+            return Content(result, "application/json");
+        }
     }
 }

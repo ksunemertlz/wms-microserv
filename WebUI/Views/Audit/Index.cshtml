@@ -1,0 +1,27 @@
+@model List<WebUI.Models.AuditLog>
+
+<h2>📋 Журнал аудита</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>ID</th>
+            <th>Пользователь</th>
+            <th>Действие</th>
+            <th>Объект</th>
+            <th>Время</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var log in Model)
+        {
+            <tr>
+                <td>@log.Id</td>
+                <td>@log.Username</td>
+                <td>@log.Action</td>
+                <td>@log.Entity</td>
+                <td>@log.Timestamp</td>
+            </tr>
+        }
+    </tbody>
+</table>

@@ -16,7 +16,6 @@ namespace ProductService.Controllers
             _db = db;
         }
 
-        // Получить все товары
         [HttpGet]
         public IActionResult GetAll()
         {
@@ -24,7 +23,6 @@ namespace ProductService.Controllers
             return Ok(products);
         }
 
-        // Получить товар по id
         [HttpGet("{id}")]
         public IActionResult GetById(int id)
         {
@@ -35,16 +33,25 @@ namespace ProductService.Controllers
             return Ok(product);
         }
 
-        // Создание нового товара
         [HttpPost]
         public IActionResult Create(Product product)
         {
             _db.Products.Add(product);
             _db.SaveChanges();
+
+            _db.AuditLogs.Add(new AuditLog
+            {
+                Username = "admin",
+                Action = "Создан товар",
+                Entity = $"Product #{product.Id}",
+                Timestamp = DateTime.UtcNow
+            });
+
+            _db.SaveChanges();
+
             return Ok(product);
         }
 
-        // Обновление товара
         [HttpPut("{id}")]
         public IActionResult Update(int id, Product product)
         {
@@ -57,10 +64,20 @@ namespace ProductService.Controllers
             existing.Quantity = product.Quantity;
 
             _db.SaveChanges();
+
+            _db.AuditLogs.Add(new AuditLog
+            {
+                Username = "admin",
+                Action = "Обновлен товар",
+                Entity = $"Product #{existing.Id}",
+                Timestamp = DateTime.UtcNow
+            });
+
+            _db.SaveChanges();
+
             return Ok(existing);
         }
 
-        // Удаление товара
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
@@ -70,7 +87,28 @@ namespace ProductService.Controllers
 
             _db.Products.Remove(product);
             _db.SaveChanges();
+
+            _db.AuditLogs.Add(new AuditLog
+            {
+                Username = "admin",
+                Action = "Удален товар",
+                Entity = $"Product #{product.Id}",
+                Timestamp = DateTime.UtcNow
+            });
+
+            _db.SaveChanges();
+
             return Ok();
+        }
+
+        [HttpGet("audit")]
+        public IActionResult GetAuditLogs()
+        {
+            var logs = _db.AuditLogs
+                .OrderByDescending(x => x.Timestamp)
+                .ToList();
+
+            return Ok(logs);
         }
     }
 }

@@ -45,5 +45,32 @@ namespace StockService.Controllers
 
             return Ok(item);
         }
+
+        [HttpGet("low")]
+        public IActionResult GetLowStock()
+        {
+            var lowStock = _db.Stock
+                .Where(x => x.Quantity < 5)
+                .ToList();
+
+            return Ok(lowStock);
+        }
+
+        [HttpPut("{id}")]
+        public IActionResult Update(int id, [FromBody] UpdateQuantityRequest request)
+        {
+            var item = _db.Stock.FirstOrDefault(s => s.Id == id);
+            if (item == null) return NotFound();
+            
+            item.Quantity = request.Quantity;
+            _db.SaveChanges();
+            
+            return Ok(item);
+        }
+
+        public class UpdateQuantityRequest
+        {
+            public int Quantity { get; set; }
+        }
     }
 }

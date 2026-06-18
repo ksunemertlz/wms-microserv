@@ -1,26 +1,25 @@
 {
   "format": 1,
   "restore": {
-    "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/StockService.csproj": {}
+    "/Users/ksenia/Desktop/Проекты/wms-microserv-main/Services/StockService/StockService.csproj": {}
   },
   "projects": {
-    "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/StockService.csproj": {
+    "/Users/ksenia/Desktop/Проекты/wms-microserv-main/Services/StockService/StockService.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/StockService.csproj",
+        "projectUniqueName": "/Users/ksenia/Desktop/Проекты/wms-microserv-main/Services/StockService/StockService.csproj",
         "projectName": "StockService",
-        "projectPath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/StockService.csproj",
-        "packagesPath": "/Users/ksunemertlz/.nuget/packages/",
-        "outputPath": "/Users/ksunemertlz/Desktop/Курсовая/диплом/wms-microserv/Services/StockService/obj/",
+        "projectPath": "/Users/ksenia/Desktop/Проекты/wms-microserv-main/Services/StockService/StockService.csproj",
+        "packagesPath": "/Users/ksenia/.nuget/packages/",
+        "outputPath": "/Users/ksenia/Desktop/Проекты/wms-microserv-main/Services/StockService/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "/Users/ksunemertlz/.nuget/NuGet/NuGet.Config"
+          "/Users/ksenia/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
           "net8.0"
         ],
         "sources": {
-          "/usr/local/share/dotnet/library-packs": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
@@ -86,7 +85,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.413/PortableRuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/8.0.422/PortableRuntimeIdentifierGraph.json"
         }
       }
     }

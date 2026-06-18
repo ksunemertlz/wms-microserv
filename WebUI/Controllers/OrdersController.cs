@@ -4,7 +4,7 @@ using WebUI.Models;
 
 namespace WebUI.Controllers
 {
-    public class OrdersController : Controller
+    public class OrdersController : BaseController
     {
         private readonly HttpClient _http;
 

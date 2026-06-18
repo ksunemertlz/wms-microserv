@@ -1,0 +1,27 @@
+@model WebUI.Models.SupplierViewModel
+
+@{
+    ViewData["Title"] = "Информация о поставщике";
+}
+
+<div class="container mt-4">
+    <div class="card shadow">
+        <div class="card-header bg-secondary text-white d-flex justify-content-between align-items-center">
+            <h3 class="mb-0">🏢 @Model.Name</h3>
+            <a asp-action="Index" class="btn btn-light btn-sm">← Назад</a>
+        </div>
+        <div class="card-body">
+            <div class="row">
+                <div class="col-md-6">
+                    <p><strong>📞 Телефон:</strong> @Model.Phone</p>
+                    <p><strong>✉️ Email:</strong> @Model.Email</p>
+                </div>
+                <div class="col-md-6 text-end">
+                    <a asp-action="Edit" asp-route-id="@Model.Id" class="btn btn-outline-primary">✏️ Редактировать</a>
+                    <a asp-action="Delete" asp-route-id="@Model.Id" class="btn btn-outline-danger" onclick="return confirm('Удалить поставщика?')">🗑️ Удалить</a>
+                    <a asp-action="Products" asp-route-id="@Model.Id" class="btn btn-outline-info">📦 Товары поставщика</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

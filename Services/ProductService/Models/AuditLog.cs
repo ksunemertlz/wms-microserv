@@ -1,0 +1,11 @@
+namespace ProductService.Models
+{
+    public class AuditLog
+    {
+        public int Id { get; set; }
+        public string Username { get; set; }
+        public string Action { get; set; }
+        public string Entity { get; set; }
+        public DateTime Timestamp { get; set; }
+    }
+}

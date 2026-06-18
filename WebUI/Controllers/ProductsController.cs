@@ -4,7 +4,7 @@ using WebUI.Models;
 
 namespace WebUI.Controllers
 {
-    public class ProductsController : Controller
+    public class ProductsController : BaseController
     {
         private readonly HttpClient _http;
 
@@ -13,15 +13,21 @@ namespace WebUI.Controllers
             _http = factory.CreateClient();
         }
 
+        [HttpGet]
         public async Task<IActionResult> Index()
         {
+            Response.Headers["Cache-Control"] = "no-cache, no-store, must-revalidate";
+            Response.Headers["Pragma"] = "no-cache";
+            Response.Headers["Expires"] = "0";
+            
             var products = await _http.GetFromJsonAsync<List<ProductWithStock>>(
                 "http://localhost:5170/api/products"
             );
-
+            
+            products = products.OrderBy(p => p.Id).ToList(); // ← сортировка
+            
             return View(products);
         }
-
 
         [HttpGet]
         public IActionResult Create()
@@ -40,7 +46,6 @@ namespace WebUI.Controllers
             return RedirectToAction("Index");
         }
 
-        //Редактирование товара по id
         [HttpGet]
         public async Task<IActionResult> Edit(int id)
         {
@@ -63,7 +68,6 @@ namespace WebUI.Controllers
             return RedirectToAction("Index");
         }
 
-        //Удаление товара по id
         public async Task<IActionResult> Delete(int id)
         {
             await _http.DeleteAsync(
@@ -76,14 +80,26 @@ namespace WebUI.Controllers
         [HttpPost]
         public async Task<IActionResult> UpdateStock(int id, int quantity)
         {
+            // 1. Обновляем остаток в StockItem
             await _http.PutAsJsonAsync(
                 $"http://localhost:5170/api/stock/{id}",
-                new { Quantity = quantity }
+                new { quantity = quantity }
+            );
+            
+            // 2. Сначала получаем текущий товар, чтобы не потерять Name и Sku
+            var product = await _http.GetFromJsonAsync<Product>(
+                $"http://localhost:5046/api/products/{id}"
+            );
+            
+            // 3. Обновляем только Quantity, сохраняя остальные поля
+            product.Quantity = quantity;
+            
+            await _http.PutAsJsonAsync(
+                $"http://localhost:5046/api/products/{id}",
+                product
             );
 
             return RedirectToAction("Index");
         }
-
-
     }
 }

@@ -11,5 +11,6 @@ namespace StockService.Data
         }
 
         public DbSet<StockItem> Stock { get; set; }
+        public DbSet<StockItem> StockItems { get; set; } 
     }
 }

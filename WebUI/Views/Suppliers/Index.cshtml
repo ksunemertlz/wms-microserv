@@ -1,6 +1,6 @@
 @model List<WebUI.Models.SupplierViewModel>
 
-<h2>Поставщики</h2>
+<h2 class="mb-4">🚚 Поставщики</h2>
 
 <a asp-action="Create" class="btn btn-primary mb-3">
     + Добавить поставщика
@@ -8,21 +8,28 @@
 
 @if (Model != null && Model.Any())
 {
-    <div class="suppliers-grid">
+    <div class="row">
         @foreach (var supplier in Model)
         {
-            <div class="supplier-card">
-                <div class="supplier-name">@supplier.Name</div>
-                <a href="/Suppliers/Products/@supplier.Id" class="supplier-link">
-                    📦 Посмотреть товары
-                </a>
+            <div class="col-md-4 col-sm-6 mb-4">
+                <div class="card h-100 shadow-sm">
+                    <div class="card-body">
+                        <h5 class="card-title">@supplier.Name</h5>
+                        <div class="d-flex justify-content-between mt-3">
+                            <a asp-action="Details" asp-route-id="@supplier.Id" class="btn btn-outline-secondary btn-sm">
+                                📋 Подробнее
+                            </a>
+                            <a asp-action="Products" asp-route-id="@supplier.Id" class="btn btn-outline-primary btn-sm">
+                                📦 Товары
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         }
     </div>
 }
 else
 {
-    <div class="empty-state">
-        <p>📭 Поставщиков пока нет</p>
-    </div>
+    <div class="alert alert-info">📭 Поставщиков пока нет</div>
 }

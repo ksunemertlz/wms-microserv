@@ -11,5 +11,6 @@ namespace ProductService.Data
         }
 
         public DbSet<Product> Products { get; set; }
+        public DbSet<AuditLog> AuditLogs { get; set; }
     }
 }
